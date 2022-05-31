@@ -1,21 +1,22 @@
 const game = {
-    title: 'Guess the Number!',
-    biggestNum: 100,
-    smallestNum: 1,
-    secretNum: null,
-    play: function() {
-      this.secretNum = Math.floor(Math.random() * 
-        (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
-        prevGuesses = []
-        this.getGuess()
-    },
+  title: 'Guess the Number!',
+  biggestNum: 100,
+  smallestNum: 1,
+  secretNum: null,
+  prevGuesses: [],
+  play: function() {
+    this.secretNum = Math.floor(Math.random() * 
+      (this.biggestNum - this.smallestNum + 1)) + this.smallestNum
+      game.getGuess()
+    this.prevGuesses.push(guess)
+  },
 getGuess: function() {
-    let guess
+    let guess 
     do {
-        guess = parseInt(prompt('Enter a guess between ${this.smallestNum} and ${this.biggestNum}'))
-        const guess = parseInt(guess)
-    } while (guess < this.smallestNum|| guess > this.biggestNum)
-    return guess 
-    }
+      guess = parseInt(prompt(`Enter a guess between ${this.smallestNum} and ${this.biggestNum}`,''))
+  } while (isNaN(guess) || guess < this.smallestNum || guess > this.biggestNum)
+  return guess
+
+}, 
 }
-console.log(game)
+// im sorry i didnt finish it i felt like i wasnt doing it right and i kept starting over..
